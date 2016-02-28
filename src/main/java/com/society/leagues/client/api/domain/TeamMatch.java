@@ -32,7 +32,7 @@ public class TeamMatch extends LeagueObject {
     @JsonDeserialize(using = DateTimeDeSerializer.class)
     @JsonView(PlayerResultSummary.class) @NotNull LocalDateTime matchDate;
 
-    @JsonView(PlayerResultSummary.class)  Division division = null;
+    @JsonView(PlayerResultSummary.class)  Division division = Division.MIXED_EIGHT;
     @JsonView(PlayerResultSummary.class)  Integer homeRacks = 0;
     @JsonView(PlayerResultSummary.class)  Integer awayRacks = 0;
     @JsonView(PlayerResultSummary.class)  Integer setHomeWins = 0;
