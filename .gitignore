@@ -1,0 +1,13 @@
+node_modules/
+.module-cache/
+bundle.js
+*.iml
+temp/*
+build/
+*~
+.idea/
+.gradle/
+
+derby.log
+users.json
+user.json
