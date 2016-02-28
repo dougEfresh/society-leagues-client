@@ -313,4 +313,12 @@ public class Stat {
         }
         return stats;
     }
+
+    public static void getRanks(List<Stat> stats) {
+        stats.sort(Stat.sortUserStats());
+        int rank = 0;
+        for (Stat stat : stats) {
+            stat.setRank(++rank);
+        }
+    }
 }
