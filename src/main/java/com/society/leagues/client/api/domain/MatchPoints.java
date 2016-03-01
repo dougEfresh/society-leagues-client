@@ -66,4 +66,18 @@ public class MatchPoints {
         this.user = user;
     }
 
+    @Override
+    public int hashCode() {
+        return playerResult.getId().hashCode() ^  user.getId().hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof MatchPoints) {
+            MatchPoints r = (MatchPoints) obj;
+            return this.getPlayerResult().getId().equals(r.playerResult.getId()) && this.getUser().getId().equals(r.getUser().getId());
+        }
+
+        return false;
+    }
 }
