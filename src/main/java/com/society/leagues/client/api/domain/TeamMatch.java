@@ -142,6 +142,7 @@ public class TeamMatch extends LeagueObject {
             case MIXED_NINE:
                 return "9";
             case MIXED_EIGHT:
+            case MIXED_MONDAYS_MIXED:
             case EIGHT_BALL_THURSDAYS:
             case EIGHT_BALL_WEDNESDAYS:
                 return "8";
@@ -222,7 +223,7 @@ public class TeamMatch extends LeagueObject {
     }
 
     public boolean isChallenge() {
-        return getDivision() != null && getDivision().isChallenge();
+        return getSeason() != null ? getSeason().isChallenge() : false;
     }
 
     public Integer getAwayRacks() {
