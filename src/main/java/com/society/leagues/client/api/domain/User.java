@@ -226,7 +226,7 @@ public class User extends LeagueObject {
         if (handicapSeasons == null || handicapSeasons.isEmpty()) {
             return false;
         }
-        return handicapSeasons.stream().filter(s->s.getSeason().getDivision().isChallenge()).count() > 0;
+        return handicapSeasons.stream().filter(s->s.getHandicap() != Handicap.NA).filter(s->s.getSeason().getDivision().isChallenge()).count() > 0;
     }
 
     @JsonIgnore
