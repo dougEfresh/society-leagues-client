@@ -279,7 +279,7 @@ public class Stat {
     }
 
     public static Comparator<Stat> sortSeasonStats() {
-        return (o1, o2) -> o2.getPoints().compareTo(o1.getPoints());
+        return sortUserStats();
     }
 
     public static <T extends Stat> Comparator<T> sortUserStats() {
@@ -289,8 +289,12 @@ public class Stat {
                 //if (!o1.getPoints().equals(o2.getPoints()))
                   //  return  o2.getPoints().compareTo(o1.getPoints());
 
+
                 if (o2.getWinPct().equals(o1.getWinPct())) {
-                    return o2.getRackPct().compareTo(o1.getRackPct());
+                    if (o2.getWins().equals(o1.getWins())) {
+                        return o2.getRackPct().compareTo(o1.getRackPct());
+                    }
+                    return o2.getWins().compareTo(o2.getWins());
                 }
                 return o2.getWinPct().compareTo(o1.getWinPct());
             }
