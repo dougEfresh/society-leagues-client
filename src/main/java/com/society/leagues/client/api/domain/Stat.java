@@ -286,26 +286,23 @@ public class Stat {
         return new Comparator<T>() {
             @Override
             public int compare(T o1, T o2) {
-                if (!o1.getPoints().equals(o2.getPoints()))
-                    return  o2.getPoints().compareTo(o1.getPoints());
+                //if (!o1.getPoints().equals(o2.getPoints()))
+                  //  return  o2.getPoints().compareTo(o1.getPoints());
 
-                if (o1.getSeason().isNine())
+                if (o2.getWinPct().equals(o1.getWinPct())) {
                     return o2.getRackPct().compareTo(o1.getRackPct());
-
+                }
                 return o2.getWinPct().compareTo(o1.getWinPct());
             }
         };
     }
 
     public static List<Team> sortTeamStats(List<Team> stats) {
-        stats.sort(new Comparator<Team>() {
-            @Override
-            public int compare(Team o1, Team o2) {
-                if (!o1.getStats().getWins().equals(o2.getStats().getWins())) {
-                    return o2.getStats().getWins().compareTo(o1.getStats().getWins());
-                }
-                return o2.getStats().getRackPct().compareTo(o1.getStats().getRackPct());
+        stats.sort((o1, o2) -> {
+            if (!o1.getStats().getWins().equals(o2.getStats().getWins())) {
+                return o2.getStats().getWins().compareTo(o1.getStats().getWins());
             }
+            return o2.getStats().getRackPct().compareTo(o1.getStats().getRackPct());
         });
         int rank = 0;
         for (Team stat : stats) {
