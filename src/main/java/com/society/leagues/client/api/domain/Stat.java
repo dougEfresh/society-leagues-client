@@ -286,8 +286,8 @@ public class Stat {
         return new Comparator<T>() {
             @Override
             public int compare(T o1, T o2) {
-                //if (!o1.getPoints().equals(o2.getPoints()))
-                  //  return  o2.getPoints().compareTo(o1.getPoints());
+                  if (o1.getSeason().isChallenge())
+                      return  o2.getPoints().compareTo(o1.getPoints());
 
                 if (o2.getWinPct().equals(o1.getWinPct())) {
                     if (o2.getWins().equals(o1.getWins())) {
