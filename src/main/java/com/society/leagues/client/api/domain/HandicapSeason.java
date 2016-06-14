@@ -37,7 +37,7 @@ public class HandicapSeason {
     }
 
     public Season getSeason() {
-        return season;
+        return season == null ? Season.getDefault() : season;
     }
 
     public void setSeason(Season season) {
