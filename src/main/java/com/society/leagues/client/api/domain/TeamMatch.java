@@ -370,17 +370,17 @@ public class TeamMatch extends LeagueObject {
     }
 
     public Team getWinner() {
-        if (homeRacks.equals(awayRacks))
+        if (isWinner(home)) {
             return home;
-
-        return homeRacks > awayRacks ? home : away;
+        }
+        return away;
     }
 
     public Team getLoser() {
-        if (awayRacks.equals(homeRacks)) {
+        if (isWinner(home)) {
             return away;
         }
-        return awayRacks > homeRacks ? home : away;
+        return home;
     }
 
     public String getScore() {
