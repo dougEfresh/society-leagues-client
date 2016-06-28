@@ -212,7 +212,7 @@ public class LeagueHttpClient extends Client.Default {
         }
         if (status == 200) {
             byte[] resp = compress(IOUtils.toByteArray(new GZIPInputStream(stream)));
-            cachedResponse.put(request.url(), new CachedResponse(resp, length));
+            //cachedResponse.put(request.url(), new CachedResponse(resp, length));
             stream = new ByteArrayInputStream(resp);
             return Response.create(status, reason, headers, new GZIPInputStream(stream), length);
         }
