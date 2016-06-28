@@ -264,7 +264,7 @@ public class TeamMatch extends LeagueObject {
         }
         if (t.getSeason().getDivision() == Division.NINE_BALL_TUESDAYS) {
             if (!getSetAwayWins().equals(getSetHomeWins())) {
-                return getSetAwayWins() > getSetAwayWins();
+                return getSetAwayWins() > getSetHomeWins();
             }
         }
         return awayRacks > homeRacks;
