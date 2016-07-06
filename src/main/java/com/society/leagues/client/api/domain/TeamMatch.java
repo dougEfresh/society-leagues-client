@@ -255,14 +255,14 @@ public class TeamMatch extends LeagueObject {
 
     public boolean isWinner(Team t) {
         if (t.equals(home) ) {
-            if (t.getSeason().getDivision() == Division.NINE_BALL_TUESDAYS) {
+            if (t.getSeason() != null && t.getSeason().getDivision() != null  && t.getSeason().getDivision() == Division.NINE_BALL_TUESDAYS) {
                 if (!getSetAwayWins().equals(getSetHomeWins())) {
                     return getSetHomeWins() > getSetAwayWins();
                 }
             }
             return homeRacks > awayRacks;
         }
-        if (t.getSeason().getDivision() == Division.NINE_BALL_TUESDAYS) {
+        if (t.getSeason() != null && t.getSeason().getDivision() != null && t.getSeason().getDivision() == Division.NINE_BALL_TUESDAYS) {
             if (!getSetAwayWins().equals(getSetHomeWins())) {
                 return getSetAwayWins() > getSetHomeWins();
             }
