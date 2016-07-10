@@ -246,6 +246,7 @@ public class TeamMatch extends LeagueObject {
         return home.getMembers().getMembers().contains(user) || away.getMembers().getMembers().contains(user);
     }
 
+
     public boolean hasTeam(Team team) {
         if (home == null || away == null) {
             return false;
@@ -253,8 +254,12 @@ public class TeamMatch extends LeagueObject {
         return  home.equals(team) || away.equals(team);
     }
 
+    @JsonIgnore
     public boolean isWinner(Team t) {
-        if (t.equals(home) ) {
+        if (t == null){
+            return false;
+        }
+        if (t.equals(home)) {
             if (t.getSeason() != null && t.getSeason().getDivision() != null  && t.getSeason().getDivision() == Division.NINE_BALL_TUESDAYS) {
                 if (!getSetAwayWins().equals(getSetHomeWins())) {
                     return getSetHomeWins() > getSetAwayWins();
@@ -376,6 +381,7 @@ public class TeamMatch extends LeagueObject {
         return away;
     }
 
+    @JsonIgnore
     public Team getLoser() {
         if (isWinner(home)) {
             return away;
