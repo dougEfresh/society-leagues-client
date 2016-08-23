@@ -256,17 +256,10 @@ public class TeamMatch extends LeagueObject {
 
     @JsonIgnore
     public boolean isWinner(Team t) {
-<<<<<<< HEAD
         if (t == null) {
             return false;
         }
         if (t.equals(home) ) {
-=======
-        if (t == null){
-            return false;
-        }
-        if (t.equals(home)) {
->>>>>>> b7ec3a54d7cfd82ff642f5f60bbcd4b3f9e2e0aa
             if (t.getSeason() != null && t.getSeason().getDivision() != null  && t.getSeason().getDivision() == Division.NINE_BALL_TUESDAYS) {
                 if (!getSetAwayWins().equals(getSetHomeWins())) {
                     return getSetHomeWins() > getSetAwayWins();
