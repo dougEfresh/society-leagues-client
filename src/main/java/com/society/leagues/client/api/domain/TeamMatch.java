@@ -254,6 +254,9 @@ public class TeamMatch extends LeagueObject {
     }
 
     public boolean isWinner(Team t) {
+        if (t == null) {
+            return false;
+        }
         if (t.equals(home) ) {
             if (t.getSeason() != null && t.getSeason().getDivision() != null  && t.getSeason().getDivision() == Division.NINE_BALL_TUESDAYS) {
                 if (!getSetAwayWins().equals(getSetHomeWins())) {
